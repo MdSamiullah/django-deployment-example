@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{%extends "userAuth_app/base.html"%}
+  {%block body_block%}
+    <!-- <h1>Welcome to Homepage of inheritance!</h1> -->
+      <div class="jumbotron">
+        <h1>Please login</h1>
+        <form action="{% url 'userAuth_app:loginURLName' %}" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Enter username here">
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+
+            <input type="submit" name="" value="Login">
+        </form>
+      </div>
+
+  {%endblock%}

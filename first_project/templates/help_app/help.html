@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- in udemy tute, they asked to use load staticfiles, but it is now deprecated so just use static -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static 'css/mystyle.css' %}">
+    <title>Help Page</title>
+  </head>
+  <body>
+    <h1>Hello I am a help page</h1>
+    <!-- {{add_content_from_views_py}} -->
+    <img src="{%static 'images/test.png' %}" alt="Image not found">
+  </body>
+</html>

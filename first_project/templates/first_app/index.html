@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static "css/mystyle.css"%}">
+    <title>First App with MTV</title>
+  </head>
+  <body>
+    <h1>Hello this is django level 2</h1>
+    <h2>Here are your access records </h2>
+    <div class="djangoTwo">
+      {% if access_record%}
+      <table>
+        <thead>
+          <td>Site Name</td>
+          <td>Date accessed</td>
+        </thead>
+          {%for acc in access_record%}
+          <tr>
+            <td>{{acc.name}}</td>
+            <td>{{acc.date}}</td>
+          </tr>
+          {%endfor%}
+      </table>
+      {%else%}
+        <p>No access record found</p>
+      {%endif%}
+    </div>
+
+  </body>
+</html>

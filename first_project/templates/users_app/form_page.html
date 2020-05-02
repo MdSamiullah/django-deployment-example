@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="{%static "css/mystyle.css"%}"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Form page</title>
+  </head>
+  <body>
+    <h1>Put information of users</h1>
+    <div class="container">
+      <div class="jumbotron">
+      <form method="post">
+        {{form.as_p}} <!-- it means form as a paragraph -->
+        {%csrf_token%} <!-- if you don't keep it, then submitting info by cliclking submit button will go to forbidden page -->
+        <!-- {{form}} -->
+        <input type="submit" class="btn btn-primary" name="" value="Submit">
+      </form>
+      </div>
+    </div>
+  </body>
+</html>
