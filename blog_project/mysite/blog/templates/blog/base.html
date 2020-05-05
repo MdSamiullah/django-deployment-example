@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>School-CRUD</title>
+      <!-- bootstrap -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+      <!-- medium style editor -->
+      <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+      <!-- custom css -->
+      <link rel="stylesheet" href="{%static 'css/blog.css'%}">
+
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap" rel="stylesheet">
+
+  </head>
+  <body class="loader">
+    <!-- nav bar -->
+      <!-- <nav class="navbar navbar-default navbar-static-top"> -->
+      <nav class="navbar navbar-static-top techfont custom-navbar">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li> <a class="navbar-brand bigbrand" href="{% url 'post_list'%}">My blog</a> </li>
+            <li> <a href="{% url 'about'%}">About us</a> </li>
+            <li> <a href="{% url 'admin:index'%}">Admin</a></li>
+            <li> <a href="www.linkedin.com">LinkedIn</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated%}
+
+              <li> <a class="dropdown-item" href="{% url 'post_new' %}">New Post</a> </li>
+              <li> <a class="dropdown-item" href="{% url 'post_draft_list' %}">Drafts</a> </li>
+              <li> <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a> </li>
+              <li> <a>Welcome: {{user.username}}</a> </li>
+            {% else %}
+              <li> <a class="nav navbar-right" href="{%url 'login'%}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+      <!-- content -->
+      <div class="content container">
+
+        <!-- anything outside of this will be inherited -->
+        <div class="row">
+          <div class="col-mid-8">
+            <div class="blog-_posts">
+                {%block content%}
+
+                {%endblock%}
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </body>
+</html>
